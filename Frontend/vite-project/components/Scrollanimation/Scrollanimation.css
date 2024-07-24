@@ -1,0 +1,29 @@
+.image {
+  opacity: 0;
+  transform: translateX(-100%);
+  /* Start from left outside of the view */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.image.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.svgicon {
+  padding: 2rem;
+  width: 9rem;
+}
+
+@media (max-width: 1300px) {
+  .svgicon {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 6rem;
+  }
+
+  .image {
+    transform: translateY(-100%);
+  }
+}

@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Package lock files (optional)
+package-lock.json
+yarn.lock
+
+# Coverage directory
+coverage/
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+
+# NPM cache
+.npm/
+
+# Dependency directories
+jspm_packages/

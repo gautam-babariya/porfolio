@@ -1,0 +1,21 @@
+.page1{
+    width:100vw !important;
+}
+.insidepage1{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+@media (max-width: 800px) {
+    .insidepage1{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+.carousel-control-prev-icon{
+    filter: invert(100%);
+}  
+.carousel-control-next-icon{
+    filter: invert(100%);
+
+}

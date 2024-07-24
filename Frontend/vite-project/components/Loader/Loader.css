@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Loader.css */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+  }
+  
+  .loader-text {
+    font-size: 2rem;
+    color: white;
+    font-family: "Merriweather", serif;
+    animation: moveText 1.5s infinite alternate;
+  }
+  
+  @keyframes moveText {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(20px);
+    }
+  }
+  
