@@ -42,7 +42,7 @@ app.post('/contactme', async (req, res) =>  {
       email,
       message,
     });
-    // await contactme.save();
+    await contactme.save();
     res.status(201).json(1);
   } catch (error) {
     console.error(error);
