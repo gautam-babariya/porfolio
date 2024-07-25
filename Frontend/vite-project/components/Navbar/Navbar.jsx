@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import logo from './accets/photo-big-removebg.png'
 import {HashLink as Link} from "react-router-hash-link"
 import { BrowserRouter } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web';
+
 
 const Navbar = () => {
+
     return (
         <BrowserRouter>
         <nav class="navbar navbar-expand-lg bg-body-tertiary header_class">

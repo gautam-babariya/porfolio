@@ -11,8 +11,27 @@ import myphoto from './accets/myphot-bgremove.png'
 import Loader from '../Loader/Loader';
 import Scrollanimation from '../Scrollanimation/Scrollanimation';
 
-
 function About() {
+  // scroll animation 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > screenHeight / 2) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   // loader 
   const [loading, setLoading] = useState(true);
 
@@ -32,46 +51,45 @@ function About() {
     <div>
       {loading ? <Loader name="Welcome to my portfolio" /> :
         <div className='aboutpagediv-class' id='about' style={{ height: screenHeight }}>
+
           <div className='firstdiv-class first' style={{ width: screenWidth / 2.5, height: screenHeight }}>
             <div className='htmlcssdiv-class skillicon'>
-            <Scrollanimation  src={mern} alt="mern" />
-            <Scrollanimation  src={datascience} alt="datascience" />
+              <Scrollanimation src={mern} alt="mern" />
+              <Scrollanimation src={datascience} alt="datascience" />
             </div>
 
             <div className='jsnodediv-class skillicon'>
-            <Scrollanimation  src={nodeimage} alt="node" />
-            <Scrollanimation  src={jsimage} alt="js" />
+              <Scrollanimation src={nodeimage} alt="node" />
+              <Scrollanimation src={jsimage} alt="js" />
             </div>
 
             <div className='reactmongodiv-class skillicon'>
-            <Scrollanimation  src={reactimage} alt="react" />
-            <Scrollanimation  src={mongoimage} alt="mongodb" />
+              <Scrollanimation src={reactimage} alt="react" />
+              <Scrollanimation src={mongoimage} alt="mongodb" />
             </div>
-
           </div>
-
+          
           <div className='seconddiv-class' style={{ height: screenHeight / 2 }}>
             <img className='myphotobig' src={myphoto} alt='myphoto' />
           </div>
 
           <div className='firstdiv-class second' style={{ width: screenWidth / 2.5, height: screenHeight }}>
             <div className='htmlcssdiv-class skillicon'>
-            <Scrollanimation  src={mern} alt="mern" />
-            <Scrollanimation  src={datascience} alt="datascience" />
+              <Scrollanimation src={mern} alt="mern" />
+              <Scrollanimation src={datascience} alt="datascience" />
             </div>
 
             <div className='jsnodediv-class skillicon'>
-            <Scrollanimation  src={nodeimage} alt="node" />
-            <Scrollanimation  src={jsimage} alt="js" />
+              <Scrollanimation src={nodeimage} alt="node" />
+              <Scrollanimation src={jsimage} alt="js" />
             </div>
 
             <div className='reactmongodiv-class skillicon'>
-            <Scrollanimation  src={reactimage} alt="react" />
-            <Scrollanimation  src={mongoimage} alt="mongodb" />
+              <Scrollanimation src={reactimage} alt="react" />
+              <Scrollanimation src={mongoimage} alt="mongodb" />
             </div>
 
           </div>
-
           <div className='thirddiv-class' style={{ width: screenWidth / 2.5 }}>
             <div className='arrowdiv-class' style={{ height: screenHeight / 4 }}>
               <img className='messageshowingarrow-class' src={arrow} alt="icon" />
@@ -92,8 +110,10 @@ function About() {
             </div>
           </div>
         </div>
-        }
+
+      }
     </div>
+
   )
 }
 

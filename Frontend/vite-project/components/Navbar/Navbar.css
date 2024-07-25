@@ -103,3 +103,6 @@ a:hover:after {
     filter: invert(100%);
     width: 2.5rem;
 }
+.remove{
+  display: none;
+}

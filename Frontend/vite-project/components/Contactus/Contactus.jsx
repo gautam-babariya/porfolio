@@ -94,12 +94,12 @@ function Contactus() {
     };
 
     return (
-        <animated.div ref={ref} style={props}>
-            <div class="container" id='contactme'>
+        <animated.div ref={ref} style={props} >
+            <div class="container"  id='contactme'>
                 <h1>Contact</h1>
                 <form id="contact-form" onSubmit={handleSubmit}>
-                    <div class="form-group">
-                        <label for="name">Name:</label>
+                    <div class="form-group" >
+                        <label for="name" >Name:</label>
                         <input type="text" id="name" name="name" onChange={handleChange} required />
                     </div>
                     <div class="form-group">
