@@ -19,7 +19,9 @@
 }
 @media (max-width: 800px) {
     .card{
-      width:25rem
+      width: auto;
+      margin-left: 2rem;
+      margin-right: 2rem;
     }
   }
 .card-img-top{
