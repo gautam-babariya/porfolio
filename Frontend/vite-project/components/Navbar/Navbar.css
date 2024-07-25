@@ -75,6 +75,9 @@ a:hover:after {
     width: 80%;
     justify-content: start;
   }
+  .brandname_class{
+    font-size: large;
+  }
 }
 .divofmenu_class{
   display: flex;
