@@ -60,3 +60,9 @@ button:hover {
     border-radius: 7rem;
     padding: 1rem;
 }
+@media (max-width: 1300px) {
+    .container{
+        width: auto;
+        padding: 2rem;
+    }
+  }
