@@ -76,7 +76,7 @@ a:hover:after {
     justify-content: start;
   }
   .brandname_class{
-    font-size: large;
+    font-size: large !important;
   }
 }
 .divofmenu_class{

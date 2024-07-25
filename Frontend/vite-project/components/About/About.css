@@ -206,7 +206,7 @@
 
 @media (max-width: 1107px) {
   .myphotobig {
-    width: 40vw;
+    width: 60vw !important;
   }
 }
 
