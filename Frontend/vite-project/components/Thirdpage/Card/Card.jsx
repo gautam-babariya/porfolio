@@ -15,6 +15,7 @@ function Card({ icon, title, description,link }) {
         <h2 className="card-text">{title}</h2>
         <p className="card-text">{description}</p>
       </div>
+        <p className="card-text last-item">CLICK TO VIEW</p>
       <div className='cardhover'>
       CLICK TO VIEW
       </div>

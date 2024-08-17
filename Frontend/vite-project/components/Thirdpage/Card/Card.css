@@ -9,7 +9,7 @@
     padding: 20px;
     width: 18rem;
     text-align: center;
-    display: inline-block;
+    display: flex;
     overflow: hidden;
     background-color: #dee5ef;
     box-shadow: 0 7px 8px rgba(0, 0, 0);
@@ -54,4 +54,7 @@
   opacity: 1;
   visibility: visible;
   
+}
+.last-item{
+  margin-top: auto;
 }
