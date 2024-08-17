@@ -94,7 +94,7 @@ function Contactus() {
     };
 
     return (
-        <animated.div ref={ref} style={props} >
+        <animated.div ref={ref} className='contactpage' style={props} >
             <div class="container"  id='contactme'>
                 <h1>Contact</h1>
                 <form id="contact-form" onSubmit={handleSubmit}>
