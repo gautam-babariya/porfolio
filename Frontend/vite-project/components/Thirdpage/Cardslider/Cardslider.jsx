@@ -12,8 +12,8 @@ function Cardslider() {
       <div class="carousel-inner">
         <div class="page1 carousel-item active">
           <div class="insidepage1">
-            <Card icon={emailspam} title='Email Spam Detector' description="This is email-spam detector app which is developed in mern stack and ML model" link='https://emailspamdetect-app.vercel.app/' />
             <Card icon={filmmaker} title='Studio Web App' description="I developed a studio portfolio web application utilizing the MERN stack" link='https://filmmaker.vercel.app' />
+            <Card icon={emailspam} title='Email Spam Detector' description="This is email-spam detector app which is developed in mern stack and ML model" link='https://emailspamdetect-app.vercel.app/' />
           </div>
         </div>
       </div>
