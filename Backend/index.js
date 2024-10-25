@@ -5,6 +5,8 @@ const Contactme = require('./model/contactme');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
+
 
 // cors code 
 app.use(cors())
@@ -16,10 +18,10 @@ app.use(cors())
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 const connect = async () => {
   try {
-      const database = await mongoose.connect('mongodb+srv://sastaolx123:Vg9mi8oQk3rwIkIC@mycluster.ska5aw9.mongodb.net/myportfolio')
+      const mongourl = process.env.VITE_MONGO_URL;
+      const database = await mongoose.connect(mongourl)
       console.log("mongo conneted!");
   } catch (error) {
       console.log("error mongo" + error);
