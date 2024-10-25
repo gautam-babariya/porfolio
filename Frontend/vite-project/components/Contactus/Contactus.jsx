@@ -60,7 +60,7 @@ function Contactus() {
             [name]: value
         }));
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         const productData = {
@@ -72,9 +72,10 @@ function Contactus() {
         formData.append('name', productData.name);
         formData.append('email', productData.email);
         formData.append('message', productData.message);
-        // axios.post('https://filmmaker-api.vercel.app/addvideo', formData)
+        const contacturl = import.meta.env.VITE_CONTACTME_URL;
+        
         try {
-            const response = await axios.post('https://gautambabariya-api.vercel.app/contactme', productData, {
+            const response = await axios.post(contacturl, productData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
