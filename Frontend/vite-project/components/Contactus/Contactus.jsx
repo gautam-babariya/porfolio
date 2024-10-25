@@ -72,10 +72,10 @@ function Contactus() {
         formData.append('name', productData.name);
         formData.append('email', productData.email);
         formData.append('message', productData.message);
-        const contacturl = import.meta.env.VITE_CONTACTME_URL;
+        const contacturl = import.meta.env.VITE_CONTACTME_URL
         
         try {
-            const response = await axios.post(contacturl, productData, {
+            const response = await axios.post('https://gautambabariya-api.vercel.app/contactme', productData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
