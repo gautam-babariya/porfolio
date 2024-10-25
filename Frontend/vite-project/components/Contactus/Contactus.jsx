@@ -72,7 +72,7 @@ function Contactus() {
         formData.append('name', productData.name);
         formData.append('email', productData.email);
         formData.append('message', productData.message);
-        const contacturl = import.meta.env.VITE_CONTACTME_URL
+        const contacturl = import.meta.env.VERCEL_CONTACTME_URL
         
         try {
             const response = await axios.post('https://gautambabariya-api.vercel.app/contactme', productData, {
@@ -93,7 +93,9 @@ function Contactus() {
             console.error("There was an error sending the data!", error);
         }
     };
-
+    const contacturls = import.meta.env.VERCEL_CONTACTME_URL
+    console.log(contacturls);
+    
     return (
         <animated.div ref={ref} className='contactpage' style={props} >
             <div class="container"  id='contactme'>
