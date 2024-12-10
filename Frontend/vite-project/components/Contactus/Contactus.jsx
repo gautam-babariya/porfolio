@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import { useSpring, animated } from '@react-spring/web';
+import Header from './Header/Header';
 
 
 Modal.setAppElement('#root');
@@ -94,6 +95,8 @@ function Contactus() {
         }
     };
     return (
+        <>
+        <Header />
         <animated.div ref={ref} className='contactpage' style={props} >
             <div class="container"  id='contactme'>
                 <h1>Contact</h1>
@@ -117,6 +120,7 @@ function Contactus() {
                 </Modal>
             </div>
         </animated.div>
+        </>
     )
 }
 

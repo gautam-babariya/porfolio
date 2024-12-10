@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.header h1{
+    font-family: "Montserrat", sans-serif;
+    font-size:3rem;
+    font-weight: 600;
+}
+.header{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 800px) {
+    .header h1{
+      font-size: 2rem;
+    }
+  }

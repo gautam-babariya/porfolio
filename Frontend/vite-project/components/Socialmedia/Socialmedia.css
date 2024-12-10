@@ -1,0 +1,11 @@
+#socialmediaicon{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+}
+.socialmediasvg{
+    margin-right: 0rem;
+    cursor: pointer;
+}

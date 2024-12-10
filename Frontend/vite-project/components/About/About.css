@@ -73,6 +73,7 @@
   position: relative;
   top: -4rem;
   justify-content: center;
+  flex-direction: column;
 }
 
 /* firsttext css  */
