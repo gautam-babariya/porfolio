@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.journeytext {
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    /* font-family: "Merriweather", serif; */
+    font-weight: 500;
+}
+
+.divofjourneytext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
+}
+
+#aboutmebio {
+    width: 70vw;
+    font-size: 14px;
+    width: 64vw;
+}
+
+#educationfield {
+    margin-bottom: 0;
+    margin-bottom: -14px;
+    font-weight: 100;
+}
+
+.indexofjourney {
+    font-family: "Merriweather", serif;
+    font-size: 2rem;
+}
+#blurcolor{
+    box-shadow: 0 30px 30px #edf2f8;
+    margin-bottom: 4rem;
+    margin-left: 8rem;
+    width: fit-content;
+}
+.changecolor{
+    background-color: rgb(225 195 147) !important;
+}
+.changecolor:hover{
+    background-color:  rgba(192, 173, 143, 0.759) !important;
+}
+#backgroundcolor{
+    box-shadow: 0 30px 30px #edf2f8;
+}
+@media (max-width: 1300px) {
+    .visibleimg {
+        display: none;
+    }
+
+    .adjustresponsive {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .journeytext {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        width: 70vw;
+    }
+
+    #educationfield {
+        font-size: 2rem;
+    }
+
+    .part2class {
+        position: unset !important;
+    }
+
+    .divpart2class {
+        margin-top: 2.5rem;
+    }
+
+    .divpart3 {
+        margin-top: 2.5rem;
+    }
+    #backgroundcolor{
+        padding-top: 0rem !important;
+    }
+    #blurcolor{
+        margin-left: 0rem;
+    }
+}
+#backgroundcolor{
+    width: 100vw;
+    padding-top: 4rem;
+    background-color: #edf2f8;
+}
+@media (max-width: 700px) {
+    .hackathontext {
+        width: 70vw;
+        margin-bottom: 0.5rem;
+    }
+
+    .certidiv {
+        flex-direction: column !important;
+        margin-top: 1rem;
+    }
+
+    #educationfield {
+        font-size: 1.8rem;
+        margin-bottom: -14px;
+    }
+    .indexofjourney{
+        font-size:  2.5rem;
+    }
+}
