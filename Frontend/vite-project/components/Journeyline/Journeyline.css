@@ -1,117 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-.journeytext {
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    /* font-family: "Merriweather", serif; */
-    font-weight: 500;
-}
-
-.divofjourneytext {
+#animateddivhe {
+    width: 100vw;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    padding-top: 2rem;
+}
+
+@media (min-width:1200px) {
+    #animateddivhe {
+        height: 100vh;
+    }
+}
+
+#backgroundcolor {
+    background-color: #edf2f8;
+    box-shadow: 0px 18px 20px #edf2f8;  
+}
+
+.displayarrow {
+    height: 100%;
+    width: 25%;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
-    width: max-content;
+    padding: 1rem 0rem 1rem 0rem;
 }
 
-#aboutmebio {
-    width: 70vw;
-    font-size: 14px;
-    width: 64vw;
+.divofsuggest {
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: xx-large;
+    font-style: normal;
 }
 
-#educationfield {
-    margin-bottom: 0;
-    margin-bottom: -14px;
-    font-weight: 100;
+.journeydiv {
+    height: 100%;
+    width: 75%;
+    display: flex;
+    align-items: center;
 }
 
-.indexofjourney {
-    font-family: "Merriweather", serif;
+#journeyline {
+    height: 100%;
+    /* width: 20%; */
+    position: absolute;
+}
+
+#divofinfo {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
+#education {
+    margin-left: 40%;
+    font-size: 1rem;
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: large;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pu {
     font-size: 2rem;
 }
-#blurcolor{
-    box-shadow: 0 30px 30px #edf2f8;
-    margin-bottom: 4rem;
-    margin-left: 8rem;
-    width: fit-content;
+
+#aboutme {
+    margin-left: 20%;
+    font-size: 0.8rem;
+    margin-top: -3rem;
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: small;
+    width: 100%;
 }
-.changecolor{
-    background-color: rgb(225 195 147) !important;
+
+#experience {
+    margin-left: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.changecolor:hover{
-    background-color:  rgba(192, 173, 143, 0.759) !important;
+
+.hackathondiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+
 }
-#backgroundcolor{
-    box-shadow: 0 30px 30px #edf2f8;
+
+#hackathon1 {
+    margin: 0;
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: medium;
 }
-@media (max-width: 1300px) {
-    .visibleimg {
+
+#resume {
+    margin-left: 20%;
+}
+
+#resumep {
+    margin: 0;
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.button {
+    padding: 3px 7px;
+    background-color: #ddc397;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 2rem;
+    font-family: "Merriweather", serif !important;
+    font-weight: 400;
+    font-size: small;
+}
+
+.button:hover {
+    background-color: #f3e0bf;
+    color: black
+}
+
+.titleinfo {
+    font-family: "Merriweather", serif !important;
+    font-weight: 900;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    border-bottom: 2px solid #ddc397;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .whatabout1050 {
+        display: none !important;
+    }
+
+    #animateddivhe {
+        align-items: center;
+        justify-content: center;
+    }
+
+    #education {
+        margin-left: 0;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    #aboutme {
+        margin-left: 0;
+        margin-bottom: 3rem;
+        margin-top: 0;
+    }
+
+    #experience {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    #resume {
+        margin-left: 0;
+    }
+
+    .journeydiv {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1200px) {
+    #pu {
+        font-size: 3rem;
+    }
+
+    #aboutme {
+        font-size: medium;
+    }
+
+    #hackathon1 {
+        font-size: large;
+    }
+
+    #resumep {
+        font-size: large;
+    }
+
+    .button {
+        padding: 0.6rem;
+    }
+}
+
+@media (min-width:1200px) {
+    .titleinfo {
         display: none;
-    }
-
-    .adjustresponsive {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100vw;
-    }
-
-    .journeytext {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 0.5rem;
-        width: 70vw;
-    }
-
-    #educationfield {
-        font-size: 2rem;
-    }
-
-    .part2class {
-        position: unset !important;
-    }
-
-    .divpart2class {
-        margin-top: 2.5rem;
-    }
-
-    .divpart3 {
-        margin-top: 2.5rem;
-    }
-    #backgroundcolor{
-        padding-top: 0rem !important;
-    }
-    #blurcolor{
-        margin-left: 0rem;
-    }
-}
-#backgroundcolor{
-    width: 100vw;
-    padding-top: 4rem;
-    background-color: #edf2f8;
-}
-@media (max-width: 700px) {
-    .hackathontext {
-        width: 70vw;
-        margin-bottom: 0.5rem;
-    }
-
-    .certidiv {
-        flex-direction: column !important;
-        margin-top: 1rem;
-    }
-
-    #educationfield {
-        font-size: 1.8rem;
-        margin-bottom: -14px;
-    }
-    .indexofjourney{
-        font-size:  2.5rem;
     }
 }
