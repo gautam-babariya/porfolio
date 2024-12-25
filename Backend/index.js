@@ -4,6 +4,7 @@ const PORT = 3000;
 const Contactme = require('./model/contactme');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -29,9 +30,31 @@ const connect = async () => {
 }
 connect();
 
-// Define a route that responds with "Hello, World!"
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: process.env.VITE_FROM_EMAIL,
+      pass: process.env.VITE_FROM_EMAIL_PASSWORD,
+  },
+});
+
+const sendNotification = async (data,sub) => {
+  const mailOptions = {
+      from: process.env.VITE_FROM_EMAIL,
+      to: process.env.VITE_TO_EMAIL,
+      subject: sub,
+      text: `New data has been added: ${JSON.stringify(data)}`,
+  };
+
+  try {
+      await transporter.sendMail(mailOptions);
+  } catch (error) {
+      console.error('Error sending email:', error);
+  }
+};
+
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.send('gautam babariya portfolio');
 });
 
 app.post('/contactme', async (req, res) =>  {
@@ -44,7 +67,9 @@ app.post('/contactme', async (req, res) =>  {
       email,
       message,
     });
-    await contactme.save();
+    await contactme.save().then((savedData) => {
+      sendNotification(savedData,'Portfolio Contact Form');
+  });
     res.status(201).json(1);
   } catch (error) {
     console.error(error);
