@@ -8,6 +8,13 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 require('dotenv').config();
 
+// websocket 
+const WebSocket = require('ws');
+const server = require('http').createServer(app);
+const wss = new WebSocket.Server({ server });
+const DataSchema = new mongoose.Schema({ value: String });
+const Data = mongoose.model('Data', DataSchema);
+
 
 // cors code 
 app.use(cors())
@@ -30,28 +37,19 @@ const connect = async () => {
 }
 connect();
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-      user: process.env.VITE_FROM_EMAIL,
-      pass: process.env.VITE_FROM_EMAIL_PASSWORD,
-  },
+// websocket 
+wss.on('connection', ws => {
+  ws.on('message', async message => {
+    const data = JSON.parse(message);
+    await Data.create(data);
+    console.log(data);
+    wss.clients.forEach(client => client.send(JSON.stringify(data)));
+  });
 });
-
-const sendNotification = async (data,sub) => {
-  const mailOptions = {
-      from: process.env.VITE_FROM_EMAIL,
-      to: process.env.VITE_TO_EMAIL,
-      subject: sub,
-      text: `New data has been added: ${JSON.stringify(data)}`,
-  };
-
-  try {
-      await transporter.sendMail(mailOptions);
-  } catch (error) {
-      console.error('Error sending email:', error);
-  }
-};
+app.get('/data', async (req, res) => {
+  const data = await Data.find();
+  res.json(data);
+});
 
 app.get('/', (req, res) => {
   res.send('gautam babariya portfolio');
@@ -67,9 +65,7 @@ app.post('/contactme', async (req, res) =>  {
       email,
       message,
     });
-    await contactme.save().then((savedData) => {
-      sendNotification(savedData,'Portfolio Contact Form');
-  });
+    await contactme.save();
     res.status(201).json(1);
   } catch (error) {
     console.error(error);
@@ -78,6 +74,6 @@ app.post('/contactme', async (req, res) =>  {
 })
 
 // Start the server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
