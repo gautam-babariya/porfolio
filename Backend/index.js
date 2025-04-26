@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const PORT = 3001;
-const Contactme = require('./model/contactme');
-const mongoose = require('mongoose');
+// const Contactme = require('./model/contactme');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const nodemailer = require('nodemailer');
 const cors = require('cors');
-require('dotenv').config();
+// require('dotenv').config();
 // const axios = require('axios');
 
 
@@ -14,16 +14,16 @@ require('dotenv').config();
 app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const connect = async () => {
-  try {
-      const mongourl = process.env.VITE_MONGO_URL;
-      const database = await mongoose.connect(mongourl)
-      console.log("mongo conneted!");
-  } catch (error) {
-      console.log("error mongo" + error);
-  }
-}
-connect();
+// const connect = async () => {
+//   try {
+//       const mongourl = process.env.VITE_MONGO_URL;
+//       const database = await mongoose.connect(mongourl)
+//       console.log("mongo conneted!");
+//   } catch (error) {
+//       console.log("error mongo" + error);
+//   }
+// }
+// connect();
 
 app.get('/', (req, res) => {
   res.send('gautam babariya portfolio');
