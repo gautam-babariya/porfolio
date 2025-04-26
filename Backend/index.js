@@ -4,16 +4,12 @@ const PORT = 3001;
 const Contactme = require('./model/contactme');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 const cors = require('cors');
 require('dotenv').config();
+const axios = require('axios'); 
 
-// websocket 
-const WebSocket = require('ws');
-const server = require('http').createServer(app);
-const wss = new WebSocket.Server({ server });
-const DataSchema = new mongoose.Schema({ value: String });
-const Data = mongoose.model('Data', DataSchema);
+
 
 
 // cors code 
@@ -36,11 +32,6 @@ const connect = async () => {
   }
 }
 connect();
-
-app.get('/data', async (req, res) => {
-  const data = await Data.find();
-  res.json(data);
-});
 
 app.get('/', (req, res) => {
   res.send('gautam babariya portfolio');
@@ -90,7 +81,6 @@ app.post('/contactme', async (req, res) =>  {
 
 // Start the server
 
-const axios = require('axios'); 
 
 const CLIENT_ID = '1000.T33QWGZILUG46ORZTGMULG3Y8ZVA5K';
 const CLIENT_SECRET = '74d882fe5c44decd57383f4c3ecfb840d1ed771908';
