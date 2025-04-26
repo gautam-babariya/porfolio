@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const Contactme = require('./model/contactme');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -37,15 +37,6 @@ const connect = async () => {
 }
 connect();
 
-// websocket 
-wss.on('connection', ws => {
-  ws.on('message', async message => {
-    const data = JSON.parse(message);
-    await Data.create(data);
-    console.log(data);
-    wss.clients.forEach(client => client.send(JSON.stringify(data)));
-  });
-});
 app.get('/data', async (req, res) => {
   const data = await Data.find();
   res.json(data);
@@ -73,7 +64,118 @@ app.post('/contactme', async (req, res) =>  {
   }
 })
 
+// const transporter = nodemailer.createTransport({
+//   host: 'smtp.zoho.in',
+//   port: 465, // use 587 if you want TLS
+//   secure: true, // true for 465, false for 587
+//   auth: {
+//     user: 'plive@plivecreation.icu',
+//     pass: 'mdqcPxvqjxgw', // replace with your actual email password
+//   },
+// });
+
+// const mailOptions = {
+//   from: 'plive@plivecreation.icu',
+//   to: 'gautambabariya0125@gmail.com',
+//   subject: 'Test Email from Node.js plive@plive',
+//   html: '<h3>This is a test email sent from Node.js using your Hostinger email.</h3>',
+// };
+
+// transporter.sendMail(mailOptions, (error, info) => {
+//   if (error) {
+//     return console.error('Error sending email:', error);
+//   }
+//   console.log('Email sent successfully:', info.response);
+// });
+
 // Start the server
+
+const axios = require('axios'); 
+
+const CLIENT_ID = '1000.T33QWGZILUG46ORZTGMULG3Y8ZVA5K';
+const CLIENT_SECRET = '74d882fe5c44decd57383f4c3ecfb840d1ed771908';
+const REFRESH_TOKEN = '1000.2abd1b8631875e3767efef1bfee79a4b.7aa63e5c1263d30e354b721e93a02c97';
+
+// ====== In-memory Token Storage ======
+let accessToken = null;
+let tokenGeneratedTime = null;
+
+// ====== Function to Refresh Access Token ======
+const refreshAccessToken = async () => {
+  const response = await axios.post('https://accounts.zoho.in/oauth/v2/token', null, {
+    params: {
+      refresh_token: REFRESH_TOKEN,
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      grant_type: 'refresh_token',
+    },
+  });
+
+  accessToken = response.data.access_token;
+  tokenGeneratedTime = Date.now();
+  console.log("✅ New access token generated");
+
+  return accessToken;
+};
+
+// ====== Function to Get Valid Access Token ======
+const getValidAccessToken = async () => {
+  if (!accessToken || !tokenGeneratedTime) {
+    console.log("❗ No token available, refreshing...");
+    return await refreshAccessToken();
+  }
+
+  const currentTime = Date.now();
+  const tokenAge = (currentTime - tokenGeneratedTime) / 1000; // in seconds
+
+  if (tokenAge > 3500) { // If older than ~58 minutes
+    console.log("⚠️  Access token expired, refreshing...");
+    return await refreshAccessToken();
+  }
+
+  console.log("✅ Using existing access token");
+  return accessToken;
+};
+
+// ====== Example Usage ======
+const sendZohoMail = async () => {
+  const token = await getValidAccessToken();
+
+  try {
+    const response = await axios.post(
+      'https://mail.zoho.in/api/accounts/6975452000000002002/messages',
+      {
+        fromAddress: "plive@plivecreation.icu",
+        toAddress: "gautambabariya0125@gmail.com",
+        subject: "OTP Verification",
+        content: "Your OTP is 12356",
+      },
+      {
+        headers: {
+          Authorization: `Zoho-oauthtoken ${token}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log("📩 Email sent:", response.data);
+  } catch (err) {
+    console.error("❌ Error sending email:", err.response?.data || err.message);
+  }
+};
+
+app.get('/send-email', async (req, res) => {
+  try {
+    await sendZohoMail();
+    res.status(200).send('Email sent successfully!');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error sending email');
+  }
+});
+
+
+
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
